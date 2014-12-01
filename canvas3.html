@@ -1,0 +1,28 @@
+<html>
+<body>
+  <canvas id="the_canvas" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('the_canvas');
+    var ctx = canvas.getContext('2d');
+
+    var n = window.prompt("How many squares should I draw?");
+    n = parseInt(n);
+    var colors = ["rgb(130, 0, 237)", "#FFEA00", "red"];
+
+    for (var i = 0; i < n; i++) {
+      if (i < 2) {
+        var num = i;
+      }
+      else {
+        var num = i % 3;
+      }
+      
+      ctx.fillStyle = colors[num];
+      ctx.fillRect (Math.floor(Math.random()*350) + 1, Math.floor(Math.random()*350) + 1, 50, 50);
+    }
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<canvas id="the_canvas" width="400" height="400"></canvas>
+		<script>
+			var canvas = document.getElementById('the_canvas');
+  			var ctx = canvas.getContext('2d');
+
+  			function Square(x, y, side, color) {
+  				this.x = x;
+  				this.y = y;
+  				this.width = side;
+  				this.height = side;
+  				this.color = color;
+  				this.draw = function() {
+  					ctx.fillStyle = this.color;
+  					ctx.fillRect (this.x, this.y, this.width, this.height);
+  				}
+  			}
+
+  			var s = new Square(100, 100, 100, "red");
+  			s.draw();
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+	<body>
+		<canvas id="the_canvas" width="400" height="400"></canvas>
+		<script>
+			var canvas = document.getElementById('the_canvas');
+  		var ctx = canvas.getContext('2d');
+      var squares = [];
+      var x = 0;
+
+  			function randomSquare(side, color) {
+  				this.x = Math.floor(Math.random()*350);
+          this.y = Math.floor(Math.random()*350);
+          this.width = side;
+  				this.height = side;
+  				this.color = color;
+  				this.draw = function() {
+  					ctx.fillStyle = this.color;
+  					ctx.fillRect (this.x, this.y, this.width, this.height);
+  				}
+  			}
+
+  		  function createXSquares(){
+          for(var i = 0; i < 10; i++) {
+            var num = i+25;
+            var rgbColor = "rgb(" + Math.floor(Math.random()*255) + ", " + Math.floor(Math.random()*255) + ", " + Math.floor(Math.random()*255) + ")";
+            squares[i] = new randomSquare(num, rgbColor);
+          }
+
+          return squares;
+        }
+
+        createXSquares();
+
+        function drawSquares(){          
+            squares[x].draw();
+            x++;
+            if (x === squares.length) {
+              clearInterval(n);
+            }
+        }
+
+        var n = setInterval(drawSquares, 500);
+
+        
+
+		</script>
+	</body>
+</html>
